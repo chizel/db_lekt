@@ -19,7 +19,7 @@ class db:
     def remove_item(self, type_to_remove, what_remove):
         """Remove first entry"""
         #type_to_remove can be key or value
-        #is type exist
+        #check is type_to_remove right
         if type_to_remove not in self.data[0]:
             return 0
         for i in range(0, len(self.data)):
@@ -33,7 +33,7 @@ class db:
     def view_items(self, what_type, what_need):
         '''view all items 
         what_type can be "key" or "value"'''
-        #is type exist
+        #is what_type right
         if what_type not in self.data[0]:
             return 0
         for item in self.data:
@@ -43,7 +43,7 @@ class db:
 
     def search_item(self, type_need, what_need):
         """Search string in list"""
-        #is type exist
+        #is type_to_remove exist
         if type_to_remove not in data[0]:
             return 0
         for i in range(0, len(data)):
