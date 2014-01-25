@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import shutil
 import time
 import os
@@ -5,18 +8,18 @@ import sys
 import getopt
 
 class db:
-    data = []
     def __init__(self, path):
         self.path = path
+        self.data = []
 
     def add_item(self, key, value):
-        """add item to list"""
+        """add item to the list"""
         new_item = {'key':key, 'value':value}
         self.data.append(new_item)
         log = 'add "' + key + '" "' + value + '"\n'
         self.write_log(log)
 
-    def remove_item(self, type_to_remove, what_remove):
+    def remove_item(self, type, what_remove):
         """Remove first entry"""
         #type_to_remove can be key or value
         #check is type_to_remove right
@@ -152,27 +155,15 @@ class db:
         print 'later :)'
 
 
-PATH = '/home/d/Dropbox/git/python/db/'
-PARENT = 1
 
-#try:
-    #opts, args = getopt.getopt(sys.argv[1:], 'c')
-    #print opts
-    #print 'ddddd'
-    #print args
-#except getopt.GetoptError:
-    #print 'Error!'
-#if PARENT:
-    #PARENT = 0
-    #print 'I\'m parent!'
-    #os.system('oop.py')
-##run childs
-#chekcing is children alive
-#select whom send data
-mydb = db(PATH)
-mydb.add_item('ggg', 'hhh')
-mydb.console_input()
-print mydb.data
-mydb.view_items('key', 'ggg')
+def main():
+    PATH = '/home/d/Dropbox/git/python/db/'
+    mydb = db(PATH)
+    mydb.add_item('ggg', 'hhh')
+    mydb.console_input()
+    print mydb.data
+    mydb.view_items('key', 'ggg')
 
-#print str(sys.argv)
+if __name__ == "__main__":
+    main()
+
